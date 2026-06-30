@@ -1,0 +1,9 @@
+{
+  "name": "lumera-lights",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Сайт и система заявок для производства больших люстр (Telegram + e-mail + авто-каталог)",
+  "engines": {
+    "node": ">=18"
+  }
+}
