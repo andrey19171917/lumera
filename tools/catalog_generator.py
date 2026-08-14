@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-Генератор PDF-каталога LUMERA (премиальный тёмный дизайн).
+Генератор PDF-каталога LUX (премиальный тёмный дизайн).
 Запуск:  python3 tools/catalog_generator.py
 Результат: catalog.pdf в корне проекта.
 
@@ -14,13 +14,13 @@ from reportlab.pdfbase import pdfmetrics
 from reportlab.pdfbase.ttfonts import TTFont
 
 # ----------------------- ДАННЫЕ (редактируйте) -----------------------
-BRAND   = "LUMERA"
+BRAND   = "LUX"
 TAGLINE = "большие люстры"
-PHONE   = "+7 (000) 000-00-00"
-EMAIL   = "info@lumera.ru"
-TG      = "@lumera"
+PHONE   = "+7 962 882-74-54"
+EMAIL   = "info@luuxx.ru"
+TG      = "@luuxx"
 ADDRESS = "Московская область, Одинцовский район"
-SITE    = "lumera.ru"
+SITE    = "luuxx.ru"
 
 MODELS = [
     ("«Ассамблея»", ["Ø 4,2 м · 36 ламп", "Латунь, хрусталь", "Зрительный зал ДК"]),
@@ -277,7 +277,7 @@ c.showPage()
 
 # ======================= СТР. 7 — ПРЕИМУЩЕСТВА + ПАРТНЁРАМ =======================
 bg(BG)
-eyebrow("Почему LUMERA", MX, H-90)
+eyebrow("Почему LUX", MX, H-90)
 para("Четыре причины доверия", MX, H-150, SERIF, 38, 460, 42, TEXT)
 adv = [
     ("Собственное производство", "Своя фабрика под Одинцовом — без посредников и наценок."),
@@ -333,4 +333,3 @@ c.showPage()
 
 c.save()
 print("OK ->", os.path.abspath(OUT))
-                                                                                          
