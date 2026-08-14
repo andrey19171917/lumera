@@ -1,5 +1,5 @@
 /* =====================================================================
-   LUMERA — обработчик заявок (Vercel Serverless Function)
+   LUX — обработчик заявок (Vercel Serverless Function)
    ---------------------------------------------------------------------
    Что делает при отправке формы с сайта:
      1) присылает заявку ВАМ в Telegram (мгновенное уведомление);
@@ -53,7 +53,7 @@ module.exports = async (req, res) => {
     CATALOG_URL, CATALOG_ATTACH, BRAND_NAME,
   } = process.env;
 
-  const brand = BRAND_NAME || 'LUMERA';
+  const brand = BRAND_NAME || 'LUX';
   const isLead = data.type === 'lead';
   const title = isLead ? '🛎 Новая заявка с сайта' : '📩 Запрос каталога';
 
