@@ -3,9 +3,9 @@
    ======================================================================= */
 const CONFIG = {
   brand:      "LUMERA",
-  phone:      "+7 962 882-74-54",       // как показывать
-  phoneRaw:   "+79628827454",           // для ссылки tel: (только цифры и +)
-  email:      "9280365@mail.ru",        // ваша почта для связи
+  phone:      "+7 (000) 000-00-00",     // как показывать
+  phoneRaw:   "+70000000000",           // для ссылки tel: (только цифры и +)
+  email:      "info@lumera.ru",         // ваша почта для связи
   telegram:   "lumera",                 // username БЕЗ @ (ссылка t.me/lumera)
   address:    "Московская область, Одинцовский район",
   // Адрес бэкенда. После деплоя на Vercel оставьте "/api/lead".
@@ -76,3 +76,68 @@ document.getElementById('catalogForm').addEventListener('submit',e=>{
   sendForm(e.target,document.getElementById('catalogStatus'),'catalog',
     'Готово! Каталог отправлен на вашу почту. Проверьте папку «Входящие» (и «Спам»).');
 });
+
+/* ---- Лайтбокс для портфолио и материалов ---- */
+(function lightbox(){
+  const box   = document.getElementById('lightbox');
+  if(!box) return;
+  const img   = document.getElementById('lbImg');
+  const tEl   = document.getElementById('lbTitle');
+  const sEl   = document.getElementById('lbSpec');
+  const items = Array.from(document.querySelectorAll('[data-lb]'));
+  if(!items.length) return;
+  let i = 0, lastFocus = null;
+
+  function show(n){
+    i = (n + items.length) % items.length;
+    const el = items[i];
+    img.src = el.dataset.lb;
+    img.alt = el.querySelector('img') ? el.querySelector('img').alt : '';
+    tEl.textContent = el.dataset.lbTitle || '';
+    sEl.textContent = el.dataset.lbSpec  || '';
+  }
+  function open(n){
+    lastFocus = document.activeElement;
+    show(n);
+    box.hidden = false;
+    requestAnimationFrame(()=>box.classList.add('on'));
+    document.body.style.overflow = 'hidden';
+    document.getElementById('lbClose').focus();
+  }
+  function close(){
+    box.classList.remove('on');
+    document.body.style.overflow = '';
+    setTimeout(()=>{ box.hidden = true; img.src=''; }, 350);
+    if(lastFocus) lastFocus.focus();
+  }
+
+  items.forEach((el,n)=>{
+    el.setAttribute('tabindex','0');
+    el.setAttribute('role','button');
+    el.addEventListener('click',()=>open(n));
+    el.addEventListener('keydown',e=>{
+      if(e.key==='Enter'||e.key===' '){ e.preventDefault(); open(n); }
+    });
+  });
+
+  document.getElementById('lbClose').addEventListener('click',close);
+  document.getElementById('lbPrev').addEventListener('click',()=>show(i-1));
+  document.getElementById('lbNext').addEventListener('click',()=>show(i+1));
+  box.addEventListener('click',e=>{ if(e.target===box) close(); });
+  document.addEventListener('keydown',e=>{
+    if(box.hidden) return;
+    if(e.key==='Escape')     close();
+    if(e.key==='ArrowLeft')  show(i-1);
+    if(e.key==='ArrowRight') show(i+1);
+  });
+
+  /* свайп на мобильных */
+  let x0=null;
+  box.addEventListener('touchstart',e=>{ x0=e.changedTouches[0].clientX; },{passive:true});
+  box.addEventListener('touchend',e=>{
+    if(x0===null) return;
+    const dx = e.changedTouches[0].clientX - x0;
+    if(Math.abs(dx)>50) show(dx>0 ? i-1 : i+1);
+    x0=null;
+  },{passive:true});
+})();

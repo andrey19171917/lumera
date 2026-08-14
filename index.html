@@ -25,6 +25,7 @@
         <li><a href="#objects">Объекты</a></li>
         <li><a href="#advantages">Почему мы</a></li>
         <li><a href="#production">Производство</a></li>
+        <li><a href="#materials">Материалы</a></li>
         <li><a href="#portfolio">Портфолио</a></li>
         <li><a href="#collab">Партнёрам</a></li>
         <li><a href="#contact">Контакты</a></li>
@@ -41,24 +42,12 @@
 <!-- ГЕРОЙ -->
 <section class="hero" id="top">
   <div class="hero-glow"></div>
-  <svg class="hero-chandelier" viewBox="0 0 400 360" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-    <line x1="200" y1="0" x2="200" y2="70" stroke="#d8b878" stroke-width="1.2" opacity=".6"/>
-    <ellipse cx="200" cy="78" rx="14" ry="6" stroke="#d8b878" stroke-width="1.2" opacity=".8"/>
-    <path d="M120 150 Q200 120 280 150" stroke="#d8b878" stroke-width="1" opacity=".5" fill="none"/>
-    <ellipse cx="200" cy="150" rx="115" ry="34" stroke="#d8b878" stroke-width="1.4" opacity=".85"/>
-    <ellipse cx="200" cy="200" rx="78" ry="24" stroke="#d8b878" stroke-width="1.2" opacity=".7"/>
-    <ellipse cx="200" cy="240" rx="44" ry="15" stroke="#d8b878" stroke-width="1.1" opacity=".55"/>
-    <g fill="#ffe9bf">
-      <circle cx="92" cy="156" r="3.4"/><circle cx="138" cy="170" r="3.4"/><circle cx="200" cy="176" r="3.4"/>
-      <circle cx="262" cy="170" r="3.4"/><circle cx="308" cy="156" r="3.4"/>
-      <circle cx="128" cy="212" r="3"/><circle cx="200" cy="220" r="3"/><circle cx="272" cy="212" r="3"/>
-      <circle cx="168" cy="250" r="2.6"/><circle cx="232" cy="250" r="2.6"/><circle cx="200" cy="270" r="2.6"/>
-    </g>
-    <g stroke="#d8b878" stroke-width=".8" opacity=".4">
-      <line x1="92" y1="156" x2="100" y2="120"/><line x1="308" y1="156" x2="300" y2="120"/>
-      <line x1="200" y1="176" x2="200" y2="150"/>
-    </g>
-  </svg>
+  <div class="hero-photo" aria-hidden="true">
+    <picture>
+      <source srcset="img/hero-chandelier.webp" type="image/webp">
+      <img src="img/hero-chandelier.jpg" alt="" width="1000" height="1300" fetchpriority="high">
+    </picture>
+  </div>
   <div class="wrap">
     <div class="reveal in">
       <span class="eyebrow">Собственное производство · Московская область</span>
@@ -158,19 +147,12 @@
 <section class="prod section-pad" id="production">
   <div class="wrap prod-inner">
     <div class="prod-visual reveal">
-      <div class="glow2"></div>
-      <svg viewBox="0 0 300 360" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-        <line x1="150" y1="0" x2="150" y2="48" stroke="#d8b878" stroke-width="1.2"/>
-        <ellipse cx="150" cy="110" rx="100" ry="30" stroke="#d8b878" stroke-width="1.5"/>
-        <ellipse cx="150" cy="160" rx="120" ry="36" stroke="#d8b878" stroke-width="1.5"/>
-        <ellipse cx="150" cy="210" rx="86" ry="26" stroke="#d8b878" stroke-width="1.3"/>
-        <ellipse cx="150" cy="252" rx="50" ry="16" stroke="#d8b878" stroke-width="1.1"/>
-        <g fill="#ffe9bf">
-          <circle cx="50" cy="162" r="4"/><circle cx="100" cy="178" r="4"/><circle cx="150" cy="184" r="4"/><circle cx="200" cy="178" r="4"/><circle cx="250" cy="162" r="4"/>
-          <circle cx="80" cy="218" r="3.4"/><circle cx="150" cy="228" r="3.4"/><circle cx="220" cy="218" r="3.4"/>
-          <circle cx="118" cy="260" r="3"/><circle cx="182" cy="260" r="3"/><circle cx="150" cy="280" r="3"/>
-        </g>
-      </svg>
+      <div class="prod-mosaic">
+        <figure class="pm pm-a"><picture><source srcset="img/prod-furnace.webp" type="image/webp"><img src="img/prod-furnace.jpg" alt="Печь стекловаренная: набор расплавленного стекла на трубку" loading="lazy" width="1000" height="750"></picture><figcaption>Стекловаренная печь</figcaption></figure>
+        <figure class="pm pm-b"><picture><source srcset="img/prod-blow.webp" type="image/webp"><img src="img/prod-blow.jpg" alt="Мастер-стеклодув формует деталь люстры у печи" loading="lazy" width="1000" height="750"></picture><figcaption>Выдувание вручную</figcaption></figure>
+        <figure class="pm pm-c"><picture><source srcset="img/prod-hands.webp" type="image/webp"><img src="img/prod-hands.jpg" alt="Формовка стеклянного плафона вручную" loading="lazy" width="1000" height="750"></picture><figcaption>Формовка плафона</figcaption></figure>
+        <figure class="pm pm-d"><picture><source srcset="img/prod-metal.webp" type="image/webp"><img src="img/prod-metal.jpg" alt="Обработка металлического каркаса люстры в цехе" loading="lazy" width="1000" height="750"></picture><figcaption>Металлокаркас</figcaption></figure>
+      </div>
       <span class="prod-tag">Производство · Одинцовский р-н, МО</span>
     </div>
     <div class="prod-text reveal" data-d="1">
@@ -191,6 +173,35 @@
       <div class="stat"><div class="n">300+</div><div class="l">реализованных объектов</div></div>
       <div class="stat"><div class="n">6&nbsp;м</div><div class="l">максимальный диаметр люстры</div></div>
       <div class="stat"><div class="n">60+</div><div class="l">городов России и СНГ</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- МАТЕРИАЛЫ -->
+<section class="section-pad materials" id="materials">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Материалы</span>
+      <h2>Из чего мы <em>собираем свет</em></h2>
+      <p class="lead">Работаем с материалами, которые держат масштаб и живут десятилетиями. Пришлём образцы подвесок, металла и покрытий почтой — до подписания договора.</p>
+    </div>
+    <div class="mat-grid reveal">
+      <figure class="mat" data-lb="img/mat-crystal.jpg" data-lb-title="Хрусталь" data-lb-spec="Ручная и машинная огранка, K9 и свинцовый хрусталь">
+        <picture><source srcset="img/mat-crystal.webp" type="image/webp"><img src="img/mat-crystal.jpg" alt="Хрустальные шары с огранкой в подвесе люстры" loading="lazy"></picture>
+        <figcaption><b>Хрусталь</b><span>Огранка K9, свинцовый и богемский. Прозрачный, дымчатый, цветной.</span></figcaption>
+      </figure>
+      <figure class="mat" data-lb="img/mat-curtain.jpg" data-lb-title="Стекло" data-lb-spec="Дутое и литое стекло, муранская и богемская школа">
+        <picture><source srcset="img/mat-curtain.webp" type="image/webp"><img src="img/mat-curtain.jpg" alt="Стеклянные подвесы, образующие световой занавес" loading="lazy"></picture>
+        <figcaption><b>Стекло</b><span>Дутое, литое, матированное. Муранская и богемская техника, цвет в массе.</span></figcaption>
+      </figure>
+      <figure class="mat" data-lb="img/mat-ceramic.jpg" data-lb-title="Керамика и фарфор" data-lb-spec="Ручная формовка, глазурь, надглазурная роспись">
+        <picture><source srcset="img/mat-ceramic.webp" type="image/webp"><img src="img/mat-ceramic.jpg" alt="Ручная роспись фарфоровых элементов в мастерской" loading="lazy"></picture>
+        <figcaption><b>Керамика и фарфор</b><span>Ручная формовка, глазури, роспись и позолота. Матовый тёплый свет.</span></figcaption>
+      </figure>
+      <figure class="mat" data-lb="img/mat-brass.jpg" data-lb-title="Латунь и бронза" data-lb-spec="Литьё, ковка, гальваника: золото, бронза, хром, чернение">
+        <picture><source srcset="img/mat-brass.webp" type="image/webp"><img src="img/mat-brass.jpg" alt="Мастер по металлу вручную обрабатывает латунную деталь" loading="lazy"></picture>
+        <figcaption><b>Латунь и бронза</b><span>Литьё, ковка, чеканка. Гальваника: золото 24К, бронза, хром, чернение.</span></figcaption>
+      </figure>
     </div>
   </div>
 </section>
@@ -220,40 +231,56 @@
     <div class="sec-head reveal">
       <span class="eyebrow">Портфолио</span>
       <h2>Объекты, где <em>горит</em> наш свет</h2>
-      <p class="lead">Несколько примеров реализованных проектов. Полную подборку с размерами и стоимостью мы отправим вместе с каталогом.</p>
+      <p class="lead">Реализованные проекты с габаритами, материалами и инженерными решениями. Нажмите на кадр, чтобы рассмотреть деталь. Полное портфолио с чертежами и сметами отправим вместе с каталогом.</p>
     </div>
     <div class="portfolio-grid reveal">
-      <div class="pf tall">
-        <span class="ph">фото</span>
-        <svg viewBox="0 0 200 280" fill="none" stroke="#d8b878" stroke-width="1.2" opacity=".85"><ellipse cx="100" cy="80" rx="80" ry="22"/><ellipse cx="100" cy="120" rx="55" ry="16"/><ellipse cx="100" cy="155" rx="32" ry="10"/><line x1="100" y1="20" x2="100" y2="58"/><g fill="#ffe9bf" stroke="none"><circle cx="40" cy="86" r="3"/><circle cx="100" cy="96" r="3"/><circle cx="160" cy="86" r="3"/><circle cx="100" cy="132" r="2.6"/></g></svg>
-        <div class="cap"><div class="t">Зрительный зал ДК</div><div class="s">Люстра Ø 4,2 м · латунь, хрусталь</div></div>
-      </div>
-      <div class="pf">
-        <span class="ph">фото</span>
-        <svg viewBox="0 0 200 200" fill="none" stroke="#d8b878" stroke-width="1.2" opacity=".85"><ellipse cx="100" cy="80" rx="70" ry="20"/><ellipse cx="100" cy="115" rx="44" ry="13"/><line x1="100" y1="24" x2="100" y2="60"/><g fill="#ffe9bf" stroke="none"><circle cx="46" cy="86" r="2.8"/><circle cx="100" cy="94" r="2.8"/><circle cx="154" cy="86" r="2.8"/></g></svg>
-        <div class="cap"><div class="t">Атриум ТЦ</div><div class="s">Каскадная инсталляция · 9 м высота</div></div>
-      </div>
-      <div class="pf">
-        <span class="ph">фото</span>
-        <svg viewBox="0 0 200 200" fill="none" stroke="#d8b878" stroke-width="1.2" opacity=".85"><ellipse cx="100" cy="78" rx="74" ry="20"/><ellipse cx="100" cy="120" rx="50" ry="15"/><ellipse cx="100" cy="150" rx="26" ry="8"/><line x1="100" y1="22" x2="100" y2="58"/><g fill="#ffe9bf" stroke="none"><circle cx="42" cy="84" r="2.8"/><circle cx="100" cy="92" r="2.8"/><circle cx="158" cy="84" r="2.8"/></g></svg>
-        <div class="cap"><div class="t">Концертный зал</div><div class="s">Люстра Ø 3,5 м · система опускания</div></div>
-      </div>
-      <div class="pf">
-        <span class="ph">фото</span>
-        <svg viewBox="0 0 200 200" fill="none" stroke="#d8b878" stroke-width="1.2" opacity=".85"><ellipse cx="100" cy="90" rx="78" ry="24"/><ellipse cx="100" cy="130" rx="46" ry="14"/><line x1="100" y1="30" x2="100" y2="66"/><g fill="#ffe9bf" stroke="none"><circle cx="40" cy="98" r="2.8"/><circle cx="100" cy="108" r="2.8"/><circle cx="160" cy="98" r="2.8"/></g></svg>
-        <div class="cap"><div class="t">Фойе театра</div><div class="s">Комплект из 5 люстр · ковка, золочение</div></div>
-      </div>
-      <div class="pf tall">
-        <span class="ph">фото</span>
-        <svg viewBox="0 0 200 280" fill="none" stroke="#d8b878" stroke-width="1.2" opacity=".85"><ellipse cx="100" cy="70" rx="60" ry="18"/><ellipse cx="100" cy="110" rx="82" ry="24"/><ellipse cx="100" cy="155" rx="50" ry="15"/><ellipse cx="100" cy="190" rx="26" ry="9"/><line x1="100" y1="18" x2="100" y2="52"/><g fill="#ffe9bf" stroke="none"><circle cx="20" cy="116" r="3"/><circle cx="100" cy="126" r="3"/><circle cx="180" cy="116" r="3"/><circle cx="100" cy="166" r="2.6"/></g></svg>
-        <div class="cap"><div class="t">Паникадило для собора</div><div class="s">Ø 5 м · латунь, эмаль, 120 свечей</div></div>
-      </div>
-      <div class="pf">
-        <span class="ph">фото</span>
-        <svg viewBox="0 0 200 200" fill="none" stroke="#d8b878" stroke-width="1.2" opacity=".85"><ellipse cx="100" cy="82" rx="72" ry="20"/><ellipse cx="100" cy="120" rx="44" ry="13"/><line x1="100" y1="26" x2="100" y2="62"/><g fill="#ffe9bf" stroke="none"><circle cx="46" cy="88" r="2.8"/><circle cx="100" cy="96" r="2.8"/><circle cx="154" cy="88" r="2.8"/></g></svg>
-        <div class="cap"><div class="t">Лобби отеля 5★</div><div class="s">Люстра Ø 2,8 м · нержавеющая сталь</div></div>
-      </div>
+      <figure class="pf tall" data-lb="img/pf-opera.jpg" data-lb-title="Оперный театр, зрительный зал" data-lb-spec="Ø 4,2 м · 380 кг · хрусталь, латунь">
+        <picture><source srcset="img/pf-opera.webp" type="image/webp"><img src="img/pf-opera.jpg" alt="Оперный зал: многоярусная люстра над партером" loading="lazy"></picture>
+        <figcaption class="cap"><div class="t">Оперный театр, зрительный зал</div><div class="s">Ø 4,2 м · 380 кг · хрусталь, латунь</div><div class="m">Высота зала 18 м · лебёдочная система опускания · 96 × E14 LED</div></figcaption>
+        <span class="pf-zoom" aria-hidden="true">+</span>
+      </figure>
+      <figure class="pf" data-lb="img/pf-crystal.jpg" data-lb-title="Фойе Дворца культуры" data-lb-spec="Ø 3,6 м · бронза, гранёный хрусталь">
+        <picture><source srcset="img/pf-crystal.webp" type="image/webp"><img src="img/pf-crystal.jpg" alt="Крупная хрустальная люстра на кессонном потолке фойе" loading="lazy"></picture>
+        <figcaption class="cap"><div class="t">Фойе Дворца культуры</div><div class="s">Ø 3,6 м · бронза, гранёный хрусталь</div><div class="m">Свет 2700 K · диммирование DALI · 4 200 подвесок</div></figcaption>
+        <span class="pf-zoom" aria-hidden="true">+</span>
+      </figure>
+      <figure class="pf" data-lb="img/pf-theatre.jpg" data-lb-title="Театр, зрительный зал" data-lb-spec="Комплект: 1 центральная + 12 ярусных">
+        <picture><source srcset="img/pf-theatre.webp" type="image/webp"><img src="img/pf-theatre.jpg" alt="Зрительный зал театра с ярусами и парадным светом" loading="lazy"></picture>
+        <figcaption class="cap"><div class="t">Театр, зрительный зал</div><div class="s">Комплект: 1 центральная + 12 ярусных</div><div class="m">Расчёт освещённости 150 лк на партере · норма пожарной безопасности</div></figcaption>
+        <span class="pf-zoom" aria-hidden="true">+</span>
+      </figure>
+      <figure class="pf tall" data-lb="img/pf-candle.jpg" data-lb-title="Малый концертный зал" data-lb-spec="Ø 2,4 м · 24 свечи · богемский хрусталь">
+        <picture><source srcset="img/pf-candle.webp" type="image/webp"><img src="img/pf-candle.jpg" alt="Классическая свечная люстра из чешского хрусталя" loading="lazy"></picture>
+        <figcaption class="cap"><div class="t">Малый концертный зал</div><div class="s">Ø 2,4 м · 24 свечи · богемский хрусталь</div><div class="m">Ручная огранка · шлифовка кромок · 6 недель производства</div></figcaption>
+        <span class="pf-zoom" aria-hidden="true">+</span>
+      </figure>
+      <figure class="pf" data-lb="img/pf-lobby.jpg" data-lb-title="Лобби гостиницы 5★" data-lb-spec="Каскад из 3 люстр · нержавеющая сталь, хрусталь">
+        <picture><source srcset="img/pf-lobby.webp" type="image/webp"><img src="img/pf-lobby.jpg" alt="Парадный лобби-холл с мраморным полом и люстрами" loading="lazy"></picture>
+        <figcaption class="cap"><div class="t">Лобби гостиницы 5★</div><div class="s">Каскад из 3 люстр · нержавеющая сталь, хрусталь</div><div class="m">Высота подвеса 9,5 м · сервисная площадка в шахте</div></figcaption>
+        <span class="pf-zoom" aria-hidden="true">+</span>
+      </figure>
+      <figure class="pf" data-lb="img/pf-modern.jpg" data-lb-title="Атриум торгового центра" data-lb-spec="Инсталляция 220 модулей · дутое стекло">
+        <picture><source srcset="img/pf-modern.webp" type="image/webp"><img src="img/pf-modern.jpg" alt="Современные плафоны из дутого цветного стекла" loading="lazy"></picture>
+        <figcaption class="cap"><div class="t">Атриум торгового центра</div><div class="s">Инсталляция 220 модулей · дутое стекло</div><div class="m">Индивидуальная цветовая палитра · монтаж на тросовой сетке</div></figcaption>
+        <span class="pf-zoom" aria-hidden="true">+</span>
+      </figure>
+      <figure class="pf" data-lb="img/pf-warm.jpg" data-lb-title="Каминный зал резиденции" data-lb-spec="Ø 1,8 м · дымчатый хрусталь">
+        <picture><source srcset="img/pf-warm.webp" type="image/webp"><img src="img/pf-warm.jpg" alt="Тёплый свет и крупные хрустальные подвески" loading="lazy"></picture>
+        <figcaption class="cap"><div class="t">Каминный зал резиденции</div><div class="s">Ø 1,8 м · дымчатый хрусталь</div><div class="m">Авторский эскиз · цвет подвесок под интерьер</div></figcaption>
+        <span class="pf-zoom" aria-hidden="true">+</span>
+      </figure>
     </div>
+  </div>
+</section>
+
+<!-- БАННЕР ДЛЯ ПРОЕКТИРОВЩИКОВ -->
+<section class="banner" aria-labelledby="bannerTitle">
+  <picture><source srcset="img/banner-wide.webp" type="image/webp"><img src="img/banner-wide.jpg" alt="Световой занавес из хрустальных подвесов" loading="lazy"></picture>
+  <div class="banner-in wrap">
+    <span class="eyebrow">Проектировщикам</span>
+    <h2 id="bannerTitle">Пришлите планы — вернём <em>узел подвеса</em> и расчёт</h2>
+    <p>За 5 рабочих дней подготовим 3D-визуализацию люстры в вашем интерьере, расчёт освещённости в люксах, нагрузку на перекрытие и узел крепления. Файлы отдаём в DWG, IFC и 3D — их можно вставить прямо в проект.</p>
+    <a href="#contact" class="btn btn--solid"><span>Отправить планировки</span></a>
   </div>
 </section>
 
@@ -382,7 +409,7 @@
       </div>
       <div class="foot-col">
         <h4>Разделы</h4>
-        <a href="#objects">Объекты</a><a href="#advantages">Почему мы</a><a href="#production">Производство</a><a href="#portfolio">Портфолио</a>
+        <a href="#objects">Объекты</a><a href="#advantages">Почему мы</a><a href="#production">Производство</a><a href="#materials">Материалы</a><a href="#portfolio">Портфолио</a>
       </div>
       <div class="foot-col">
         <h4>Сотрудничество</h4>
@@ -409,5 +436,16 @@
 </a>
 
 <script src="js/app.js"></script>
+<!-- ЛАЙТБОКС -->
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Просмотр фотографии" hidden>
+  <button class="lb-close" id="lbClose" aria-label="Закрыть">&times;</button>
+  <button class="lb-nav lb-prev" id="lbPrev" aria-label="Предыдущее фото">&#8249;</button>
+  <button class="lb-nav lb-next" id="lbNext" aria-label="Следующее фото">&#8250;</button>
+  <figure class="lb-fig">
+    <img id="lbImg" src="" alt="">
+    <figcaption><div class="t" id="lbTitle"></div><div class="s" id="lbSpec"></div></figcaption>
+  </figure>
+</div>
+
 </body>
 </html>

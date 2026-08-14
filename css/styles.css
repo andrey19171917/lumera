@@ -298,3 +298,122 @@ footer{background:var(--bg-2);border-top:1px solid var(--line);padding:80px 0 40
   .collab-cta{padding:30px 26px}
   .hero h1{font-size:clamp(38px,11vw,60px)}
 }
+
+/* ============== ФОТОГРАФИИ (добавлено) ============== */
+picture{display:block}
+
+/* --- Герой: фото люстры --- */
+.hero-photo{
+  position:absolute;top:-40px;left:50%;transform:translateX(-50%);
+  width:560px;max-width:86vw;z-index:1;pointer-events:none;
+  -webkit-mask-image:radial-gradient(ellipse 62% 58% at 50% 40%,#000 45%,transparent 78%);
+          mask-image:radial-gradient(ellipse 62% 58% at 50% 40%,#000 45%,transparent 78%);
+}
+.hero-photo img{width:100%;height:auto;opacity:.95;filter:saturate(1.05) contrast(1.05)}
+.hero::after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;
+  background:radial-gradient(ellipse 70% 40% at 50% 0%,rgba(216,184,120,.10),transparent 70%)}
+
+/* --- Производство: мозаика --- */
+.prod-visual{aspect-ratio:auto;padding:0;overflow:hidden;background:var(--bg-2)}
+.prod-mosaic{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);width:100%}
+.pm{position:relative;overflow:hidden;margin:0;background:var(--bg)}
+.pm img{width:100%;height:100%;object-fit:cover;aspect-ratio:4/3;transition:transform .8s var(--ease);filter:saturate(.95)}
+.pm:hover img{transform:scale(1.06)}
+.pm figcaption{
+  position:absolute;left:0;right:0;bottom:0;padding:26px 14px 10px;
+  font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--text);
+  background:linear-gradient(to top,rgba(8,8,10,.88),transparent);
+}
+.prod-visual .prod-tag{top:18px;left:18px;bottom:auto;z-index:3}
+
+/* --- Портфолио: фото-карточки --- */
+.pf{margin:0;background:var(--bg);cursor:zoom-in}
+.pf picture,.pf img{position:absolute;inset:0;width:100%;height:100%}
+.pf img{object-fit:cover;transition:transform 1s var(--ease),filter .6s;filter:saturate(.94) brightness(.92)}
+.pf:hover img{transform:scale(1.05);filter:saturate(1.05) brightness(1)}
+.pf::after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;
+  background:linear-gradient(to top,rgba(8,8,10,.92) 0%,rgba(8,8,10,.45) 34%,transparent 62%);
+  transition:opacity .5s}
+.pf .cap{bottom:22px;left:22px;right:22px}
+.pf .cap .m{
+  font-size:11.5px;color:var(--muted);letter-spacing:.02em;line-height:1.5;margin-top:8px;
+  max-height:0;opacity:0;overflow:hidden;transition:max-height .5s var(--ease),opacity .4s,margin-top .5s;
+}
+.pf:hover .cap .m{max-height:80px;opacity:1}
+.pf .cap .s{color:var(--gold);opacity:.9}
+.pf-zoom{
+  position:absolute;top:16px;right:16px;z-index:2;width:34px;height:34px;border:1px solid var(--line);
+  display:grid;place-items:center;font-size:20px;font-weight:300;color:var(--text);
+  background:rgba(8,8,10,.35);backdrop-filter:blur(4px);
+  opacity:0;transform:scale(.8);transition:.4s var(--ease)
+}
+.pf:hover .pf-zoom{opacity:1;transform:scale(1)}
+
+/* --- Материалы --- */
+.materials{background:var(--bg-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.mat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:56px}
+.mat{position:relative;margin:0;overflow:hidden;border:1px solid var(--line);background:var(--bg);cursor:zoom-in}
+.mat img{width:100%;height:100%;aspect-ratio:1;object-fit:cover;transition:transform .9s var(--ease),filter .5s;filter:saturate(.9) brightness(.8)}
+.mat:hover img{transform:scale(1.06);filter:saturate(1.05) brightness(.95)}
+.mat figcaption{position:absolute;inset:auto 0 0 0;padding:60px 22px 22px;z-index:1;
+  background:linear-gradient(to top,rgba(8,8,10,.94),transparent)}
+.mat figcaption b{font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:400;display:block}
+.mat figcaption span{display:block;font-size:12.5px;color:var(--muted);line-height:1.55;margin-top:6px;
+  max-height:0;opacity:0;overflow:hidden;transition:max-height .5s var(--ease),opacity .4s,margin-top .5s}
+.mat:hover figcaption span{max-height:110px;opacity:1}
+
+/* --- Широкий баннер --- */
+.banner{position:relative;min-height:520px;display:flex;align-items:center;overflow:hidden;
+  border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.banner>picture,.banner>picture img{position:absolute;inset:0;width:100%;height:100%}
+.banner>picture img{object-fit:cover;filter:saturate(.7) brightness(.42)}
+.banner::before{content:"";position:absolute;inset:0;z-index:1;
+  background:linear-gradient(100deg,rgba(11,11,13,.94) 0%,rgba(11,11,13,.72) 46%,rgba(11,11,13,.32) 100%)}
+.banner-in{position:relative;z-index:2;padding-top:90px;padding-bottom:90px}
+.banner-in h2{font-size:clamp(32px,4.4vw,56px);font-weight:300;max-width:16ch}
+.banner-in h2 em{font-style:italic;color:var(--gold)}
+.banner-in p{margin:26px 0 34px;max-width:620px;color:var(--muted);font-size:17px}
+
+/* --- Лайтбокс --- */
+.lightbox{position:fixed;inset:0;z-index:200;background:rgba(6,6,8,.96);
+  display:flex;align-items:center;justify-content:center;padding:60px 70px;
+  opacity:0;transition:opacity .35s var(--ease)}
+.lightbox.on{opacity:1}
+.lightbox[hidden]{display:none}
+.lb-fig{margin:0;max-width:100%;max-height:100%;display:flex;flex-direction:column;align-items:center;gap:18px}
+.lb-fig img{max-width:100%;max-height:78vh;object-fit:contain;border:1px solid var(--line)}
+.lb-fig figcaption{text-align:center}
+.lb-fig .t{font-family:'Cormorant Garamond',serif;font-size:26px}
+.lb-fig .s{font-size:13px;color:var(--gold);letter-spacing:.06em;margin-top:4px}
+.lb-close,.lb-nav{position:absolute;background:none;border:1px solid var(--line);color:var(--text);
+  cursor:pointer;display:grid;place-items:center;transition:.3s var(--ease);font-weight:300}
+.lb-close{top:26px;right:26px;width:44px;height:44px;font-size:26px;line-height:1}
+.lb-nav{top:50%;transform:translateY(-50%);width:46px;height:70px;font-size:30px}
+.lb-prev{left:20px}.lb-next{right:20px}
+.lb-close:hover,.lb-nav:hover{background:var(--gold-soft);border-color:var(--gold);color:var(--gold)}
+
+/* --- Адаптив --- */
+@media(max-width:1024px){
+  .mat-grid{grid-template-columns:repeat(2,1fr)}
+  .hero-photo{width:440px;top:-20px}
+}
+@media(max-width:900px){
+  .banner{min-height:auto}
+  .banner-in h2{max-width:100%}
+}
+@media(max-width:720px){
+  .mat-grid{grid-template-columns:1fr 1fr;gap:10px}
+  .mat figcaption{padding:44px 14px 14px}
+  .mat figcaption b{font-size:19px}
+  .mat figcaption span{display:none}
+  .hero-photo{width:320px;top:0;opacity:.7}
+  .pf .cap .m{display:none}
+  .lightbox{padding:24px 12px}
+  .lb-nav{width:38px;height:56px;font-size:24px}
+  .lb-prev{left:6px}.lb-next{right:6px}
+  .prod-mosaic{grid-template-columns:1fr 1fr}
+}
+@media(hover:none){
+  .pf .cap .m,.mat figcaption span{max-height:110px;opacity:1;margin-top:6px}
+  .pf-zoom{opacity:1;transform:scale(1)}
+}
