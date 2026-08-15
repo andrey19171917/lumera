@@ -437,7 +437,6 @@
   <svg viewBox="0 0 24 24" fill="currentColor"><path d="M21.94 4.4l-3.32 15.7c-.25 1.1-.9 1.38-1.83.86l-5.05-3.72-2.44 2.35c-.27.27-.5.5-1.02.5l.36-5.16L17.1 7.5c.41-.36-.09-.56-.64-.2L6.16 13.9l-4.9-1.53c-1.07-.33-1.09-1.07.22-1.58l19.16-7.38c.89-.33 1.67.2 1.3 1z"/></svg>
 </a>
 
-<script src="js/app.js"></script>
 <!-- ЛАЙТБОКС -->
 <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Просмотр фотографии" hidden>
   <button class="lb-close" id="lbClose" aria-label="Закрыть">&times;</button>
@@ -449,5 +448,88 @@
   </figure>
 </div>
 
+<!-- ОПРОСНИК: ПОДБОР ЛЮСТРЫ -->
+<div class="quiz-overlay" id="quizOverlay" role="dialog" aria-modal="true" aria-label="Подбор люстры" hidden>
+  <div class="quiz-box">
+    <button class="quiz-close" id="quizClose" aria-label="Закрыть">&times;</button>
+    <span class="quiz-eyebrow">Подбор люстры · 30 секунд</span>
+    <div class="quiz-progress" id="quizProgress"><i></i><i></i><i></i><i></i></div>
+
+    <div class="quiz-step active" data-step="1">
+      <h3>Для какого пространства нужна люстра?</h3>
+      <p class="qsub">Ответьте на несколько вопросов — так мы точнее подберём модель и пришлём релевантные примеры из портфолио.</p>
+      <div class="quiz-options" data-q="purpose">
+        <button type="button" class="quiz-opt" data-v="Дом культуры"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M3 21h18M5 21V8l7-5 7 5v13M9 21v-6h6v6"/></svg><span>Дом культуры</span></button>
+        <button type="button" class="quiz-opt" data-v="Театр / филармония"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M3 21V6l9-3 9 3v15M3 21h18M8 21v-5h8v5"/></svg><span>Театр / филармония</span></button>
+        <button type="button" class="quiz-opt" data-v="Консерватория"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M9 18V5l12-2v13M9 13l12-2M6 21a3 3 0 100-6 3 3 0 000 6zM18 19a3 3 0 100-6 3 3 0 000 6z"/></svg><span>Консерватория</span></button>
+        <button type="button" class="quiz-opt" data-v="Торговый центр"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M3 9l1-5h16l1 5M4 9v11h16V9M9 20v-6h6v6M3 9h18"/></svg><span>Торговый центр</span></button>
+        <button type="button" class="quiz-opt" data-v="Храм / собор"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M12 2v6M9 5h6M5 22V11l7-4 7 4v11M5 22h14M10 22v-5h4v5"/></svg><span>Храм / собор</span></button>
+        <button type="button" class="quiz-opt" data-v="Отель / ресторан"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M3 21V8l9-5 9 5v13M3 21h18M10 21v-5h4v5M8 11h.01M16 11h.01"/></svg><span>Отель / ресторан</span></button>
+        <button type="button" class="quiz-opt" data-v="Музей / БЦ"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M4 21V5a2 2 0 012-2h12a2 2 0 012 2v16M4 21h16M9 21v-7h6v7"/></svg><span>Музей / БЦ</span></button>
+        <button type="button" class="quiz-opt" data-v="Другое"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M12 3v18M3 12h18M6 6l12 12M18 6L6 18"/></svg><span>Другое</span></button>
+      </div>
+      <div class="quiz-nav"><span></span><button type="button" class="quiz-skip" data-skip>Пропустить опрос</button></div>
+    </div>
+
+    <div class="quiz-step" data-step="2">
+      <h3>Какой материал вам ближе?</h3>
+      <p class="qsub">Сомневаетесь? Выберите последний вариант — подскажем на консультации.</p>
+      <div class="quiz-options" data-q="material">
+        <button type="button" class="quiz-opt" data-v="Хрусталь"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M12 2l5 6-5 14L7 8l5-6zM4.5 8h15"/></svg><span>Хрусталь</span></button>
+        <button type="button" class="quiz-opt" data-v="Стекло"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M6 2h12l-1.2 12.4a4.8 4.8 0 01-9.6 0L6 2zM8 22h8"/></svg><span>Стекло</span></button>
+        <button type="button" class="quiz-opt" data-v="Керамика и фарфор"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M4 7c0-1.7 3.6-3 8-3s8 1.3 8 3-3.6 3-8 3-8-1.3-8-3zM4 7v10c0 1.7 3.6 3 8 3s8-1.3 8-3V7"/></svg><span>Керамика и фарфор</span></button>
+        <button type="button" class="quiz-opt" data-v="Латунь и бронза"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="12" cy="12" r="9"/><path d="M12 7v10M7 12h10"/></svg><span>Латунь и бронза</span></button>
+        <button type="button" class="quiz-opt quiz-opt--wide" data-v="Пока не знаю"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M9.5 9a2.5 2.5 0 115 .5c0 1.7-2.5 1.8-2.5 4.3M12 17h.01"/><circle cx="12" cy="12" r="9"/></svg><span>Пока не знаю — нужна консультация</span></button>
+      </div>
+      <div class="quiz-nav"><button type="button" class="quiz-back" data-back>&larr; Назад</button><button type="button" class="quiz-skip" data-skip>Пропустить</button></div>
+    </div>
+
+    <div class="quiz-step" data-step="3">
+      <h3>Какой примерный размер люстры?</h3>
+      <p class="qsub">Ориентировочный диаметр — точный расчёт сделаем после замера и 3D-проекта.</p>
+      <div class="quiz-options" data-q="size">
+        <button type="button" class="quiz-opt" data-v="До 1,5 м"><span>До 1,5 м</span></button>
+        <button type="button" class="quiz-opt" data-v="1,5–3 м"><span>1,5–3 м</span></button>
+        <button type="button" class="quiz-opt" data-v="3–6 м"><span>3–6 м</span></button>
+        <button type="button" class="quiz-opt" data-v="Более 6 м"><span>Более 6 м</span></button>
+        <button type="button" class="quiz-opt quiz-opt--wide" data-v="Затрудняюсь ответить"><span>Затрудняюсь ответить</span></button>
+      </div>
+      <div class="quiz-nav"><button type="button" class="quiz-back" data-back>&larr; Назад</button><button type="button" class="quiz-skip" data-skip>Пропустить</button></div>
+    </div>
+
+    <div class="quiz-step" data-step="4">
+      <h3>Куда прислать подбор?</h3>
+      <p class="qsub">Обязательно только поле «Телефон» — остальное по желанию.</p>
+      <form class="quiz-form" id="quizForm" novalidate>
+        <div class="field"><input type="tel" name="phone" placeholder="Телефон*" autocomplete="tel" required></div>
+        <div class="field"><input type="text" name="name" placeholder="Имя" autocomplete="name"></div>
+        <div class="field"><input type="email" name="email" placeholder="E-mail" autocomplete="email"></div>
+        <div class="field"><input type="text" name="company" placeholder="Компания" autocomplete="organization"></div>
+        <div class="field"><input type="text" name="position" placeholder="Должность"></div>
+        <input type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" class="hp">
+        <label class="consent">
+          <input type="checkbox" name="consent" required checked>
+          <span>Согласен на обработку персональных данных в соответствии с <a href="#privacy">политикой конфиденциальности</a></span>
+        </label>
+        <div class="quiz-nav">
+          <button type="button" class="quiz-back" data-back>&larr; Назад</button>
+          <button type="submit" class="btn btn--solid"><span>Получить подбор</span></button>
+        </div>
+        <div class="form-status" id="quizStatus"></div>
+      </form>
+    </div>
+
+    <div class="quiz-step" data-step="5">
+      <div class="quiz-thanks">
+        <svg class="qi" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M20 6L9 17l-5-5"/></svg>
+        <h3>Спасибо!</h3>
+        <p>Мы получили ваши ответы и свяжемся с вами в течение дня с подбором люстры под ваш объект.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="js/app.js"></script>
+<script src="js/quiz.js"></script>
 </body>
 </html>
