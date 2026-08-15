@@ -28,23 +28,34 @@ module.exports = async (req, res) => {
 
   const clean = (s) => String(s ?? '').toString().trim().slice(0, 2000);
   const data = {
-    type:    clean(body.type) || 'lead',
-    name:    clean(body.name),
-    phone:   clean(body.phone),
-    email:   clean(body.email),
-    object:  clean(body.object),
-    message: clean(body.message),
-    page:    clean(body.page),
-    website: clean(body.website), // honeypot (скрытое поле для ботов)
+    type:     clean(body.type) || 'lead',
+    name:     clean(body.name),
+    phone:    clean(body.phone),
+    email:    clean(body.email),
+    object:   clean(body.object),
+    message:  clean(body.message),
+    page:     clean(body.page),
+    // поля опросника «Подбор люстры»
+    purpose:  clean(body.purpose),
+    material: clean(body.material),
+    size:     clean(body.size),
+    company:  clean(body.company),
+    position: clean(body.position),
+    website:  clean(body.website), // honeypot (скрытое поле для ботов)
   };
 
   // ---- Анти-спам: honeypot ----
   if (data.website) return res.status(200).json({ ok: true }); // тихо игнорируем бота
 
   // ---- Минимальная валидация ----
-  if (!data.name) return res.status(400).json({ ok: false, error: 'Не указано имя' });
-  if (data.type === 'lead' && !data.phone) return res.status(400).json({ ok: false, error: 'Не указан телефон' });
-  if (data.type === 'catalog' && !isEmail(data.email)) return res.status(400).json({ ok: false, error: 'Некорректный e-mail' });
+  // В опроснике обязателен только телефон — имя не требуем.
+  if (data.type === 'quiz') {
+    if (!data.phone) return res.status(400).json({ ok: false, error: 'Не указан телефон' });
+  } else {
+    if (!data.name) return res.status(400).json({ ok: false, error: 'Не указано имя' });
+    if (data.type === 'lead' && !data.phone) return res.status(400).json({ ok: false, error: 'Не указан телефон' });
+    if (data.type === 'catalog' && !isEmail(data.email)) return res.status(400).json({ ok: false, error: 'Некорректный e-mail' });
+  }
 
   // ---- Переменные окружения ----
   const {
@@ -55,18 +66,26 @@ module.exports = async (req, res) => {
 
   const brand = BRAND_NAME || 'LUX';
   const isLead = data.type === 'lead';
-  const title = isLead ? '🛎 Новая заявка с сайта' : '📩 Запрос каталога';
+  const isQuiz = data.type === 'quiz';
+  const title = isQuiz ? '🧩 Заявка из опросника «Подбор люстры»'
+              : isLead ? '🛎 Новая заявка с сайта'
+              : '📩 Запрос каталога';
 
   // Текст уведомления для владельца
   const lines = [
     `<b>${title}</b>`,
     `${brand}`,
     '—',
-    data.name    ? `👤 <b>Имя:</b> ${esc(data.name)}` : '',
-    data.phone   ? `📞 <b>Телефон:</b> ${esc(data.phone)}` : '',
-    data.email   ? `✉️ <b>E-mail:</b> ${esc(data.email)}` : '',
-    data.object  ? `🏛 <b>Объект:</b> ${esc(data.object)}` : '',
-    data.message ? `📝 <b>Сообщение:</b> ${esc(data.message)}` : '',
+    data.name     ? `👤 <b>Имя:</b> ${esc(data.name)}` : '',
+    data.position ? `💼 <b>Должность:</b> ${esc(data.position)}` : '',
+    data.company  ? `🏢 <b>Компания:</b> ${esc(data.company)}` : '',
+    data.phone    ? `📞 <b>Телефон:</b> ${esc(data.phone)}` : '',
+    data.email    ? `✉️ <b>E-mail:</b> ${esc(data.email)}` : '',
+    data.object   ? `🏛 <b>Объект:</b> ${esc(data.object)}` : '',
+    data.purpose  ? `🏛 <b>Назначение:</b> ${esc(data.purpose)}` : '',
+    data.material ? `💎 <b>Материал:</b> ${esc(data.material)}` : '',
+    data.size     ? `📐 <b>Размер:</b> ${esc(data.size)}` : '',
+    data.message  ? `📝 <b>Сообщение:</b> ${esc(data.message)}` : '',
     '—',
     `🌐 ${esc(data.page || '')}`,
     `🕒 ${new Date().toLocaleString('ru-RU', { timeZone: 'Europe/Moscow' })} МСК`,
@@ -98,7 +117,7 @@ module.exports = async (req, res) => {
       const html = ownerText.replace(/\n/g, '<br>');
       const r = await resendSend(RESEND_API_KEY, {
         from: MAIL_FROM, to: MAIL_TO,
-        subject: `${title} — ${data.name || 'без имени'}`,
+        subject: `${title} — ${data.name || data.phone || 'без имени'}`,
         html,
         reply_to: isEmail(data.email) ? data.email : undefined,
       });
