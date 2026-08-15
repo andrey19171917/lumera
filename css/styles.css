@@ -437,12 +437,8 @@ picture{display:block}
 .quiz-overlay[hidden]{display:none}
 .quiz-box{position:relative;width:100%;max-width:640px;max-height:88vh;overflow-y:auto;
   background:var(--bg-2);border:1px solid var(--line);border-radius:var(--radius);
-  padding:56px 50px 44px;transform:translateY(18px);transition:transform .45s var(--ease)}
+  padding:48px 50px 44px;transform:translateY(18px);transition:transform .45s var(--ease)}
 .quiz-overlay.on .quiz-box{transform:translateY(0)}
-.quiz-close{position:absolute;top:18px;right:18px;width:40px;height:40px;border:1px solid var(--line);
-  background:none;color:var(--text);cursor:pointer;display:grid;place-items:center;font-size:22px;
-  font-weight:300;line-height:1;transition:.3s var(--ease)}
-.quiz-close:hover{background:var(--gold-soft);border-color:var(--gold);color:var(--gold)}
 .quiz-eyebrow{font-family:'Manrope',sans-serif;font-weight:500;font-size:11px;letter-spacing:.28em;
   text-transform:uppercase;color:var(--gold);display:inline-block;margin-bottom:20px}
 .quiz-progress{display:flex;gap:6px;margin-bottom:34px}
@@ -475,9 +471,9 @@ picture{display:block}
 .quiz-thanks .qi{width:52px;height:52px;color:var(--gold);margin:0 auto 22px}
 .quiz-thanks h3{font-size:30px;font-weight:400}
 .quiz-thanks p{color:var(--muted);margin-top:14px;font-size:15px;max-width:40ch;margin-left:auto;margin-right:auto}
+.quiz-thanks .btn{margin-top:28px}
 
 @media(max-width:640px){
-  .quiz-box{padding:70px 24px 32px;max-height:92vh}
+  .quiz-box{padding:44px 24px 32px;max-height:92vh}
   .quiz-options{grid-template-columns:1fr}
-  .quiz-close{top:12px;right:12px}
 }
